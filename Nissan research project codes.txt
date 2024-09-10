@@ -1,0 +1,32 @@
+use nissan_project;
+
+select * from nissan_dataset;
+
+/*1.What are the models that are in bad condition?*/
+select quality, model
+from nissan_dataset
+where quality= "Bad";
+
+/*2. Name the top 5 models having max performance and good condition?*/
+select performance,Quality, model
+from nissan_dataset
+where quality= "Good"
+Order by Performance desc
+limit 5;
+
+/*3. How many female gender customer who have their differnet model condition?*/
+select gender,Quality, model
+from nissan_dataset
+where Gender= "Female";
+
+/*4. How many orange colour models are there ?*/
+select count(Model), color
+from nissan_dataset
+where color= "Orange"
+group by Color;
+
+/*5. Show the model that have high performance and runs high kilometer?*/
+select model,performance,km
+from nissan_dataset
+order by Performance desc
+limit 5;
